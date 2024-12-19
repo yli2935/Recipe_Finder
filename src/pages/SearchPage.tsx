@@ -1,11 +1,10 @@
 /*
  * @Author: Li yli2935@uwo.ca
  * @Date: 2024-12-18 17:10:46
- * @LastEditors: Li
- * @LastEditTime: 2024-12-18 17:10:52
+ * @LastEditors: Adam Li
+ * @LastEditTime: 2024-12-18 21:29:23
  * @FilePath: /Recipe_Finder/src/pages/SearchPage.tsx
  */
-import React from 'react'
 
 const SearchPage = () => {
   return (
