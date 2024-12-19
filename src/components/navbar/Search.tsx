@@ -2,7 +2,7 @@
  * @Author: Adam Li adam@bizzone.com
  * @Date: 2024-12-18 19:59:05
  * @LastEditors: Adam Li
- * @LastEditTime: 2024-12-18 21:25:42
+ * @LastEditTime: 2024-12-18 23:39:52
  * @FilePath: /Recipe_Finder/src/components/navbar/Search.tsx
  */
 "use client";
@@ -13,9 +13,6 @@ const Search = () => {
   const handleSearch = () => {
     console.log("searching...");
   }
-
-  
-
 
   return (
     <div className="border-[1px] w-full md:w-auto py-2 rounded-full shadow-sm hover:shadow-md transition cursor-pointer">
@@ -31,27 +28,28 @@ const Search = () => {
           Category
         </div>
         <div
-          className="text-sm pl-6 pr-2
+          className="text-sm pl-4 pr-2 
             text-gray-600
             flex
             flex-row
             items-center
-            gap-3"
+            gap-4"
         >
           <div className="hidden sm:block">Area</div>
           <div
+          onClick={handleSearch}
             className="
               p-2
               sm:p-3
-              bg-rose-500
+              bg-black
               rounded-full
               text-white
-              hover:bg-rose-600
+              hover:bg-gray-600
               transition
               duration-200
               "
           >
-            <BiSearch className="w-4 h-4 sm:w-5 sm:h-5" />
+            <BiSearch className="w-4 h-4 sm:w-5 sm:h-5 " />
           </div>
         </div>
       </div>

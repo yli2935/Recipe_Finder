@@ -10,7 +10,10 @@ import Container from "../Container";
 import Logo from "./Logo";
 import Menu from "./Menu";
 import Search from "./Search";
-const Navbar = () => {
+interface NavbarProps {
+  onSearch: (query: string) => void;
+}
+const Navbar: React.FC<NavbarProps> = ({ onSearch }) => {
   return (
     <div className="fixed w-full bg-white z-10 shadow-sm">
       <div className="py-2 border-b-[1px]">

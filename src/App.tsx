@@ -7,7 +7,7 @@
  */
 import { useRoutes } from "react-router-dom";
 import routes from "./routers";
-import Navbar from "./components/navbar/Navbar";
+
 function App() {
   const element = useRoutes(routes);
   return (

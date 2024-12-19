@@ -2,7 +2,7 @@
  * @Author: Adam Li adam@bizzone.com
  * @Date: 2024-12-18 22:24:22
  * @LastEditors: Adam Li
- * @LastEditTime: 2024-12-18 22:26:28
+ * @LastEditTime: 2024-12-19 09:29:45
  * @FilePath: /Recipe_Finder/src/types/SafeRecipe.ts
  */
 export type Recipe = {
@@ -59,4 +59,7 @@ export type Recipe = {
     strImageSource: string | null;
     strCreativeCommonsConfirmed: string | null;
     dateModified: string | null;
+  };
+  export type  Meals = {
+    meals: Recipe[];
   };

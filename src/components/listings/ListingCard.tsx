@@ -10,6 +10,6 @@ interface ListingCardProps {
     data: Recipe;
 }
 const ListingCard : React.FC<ListingCardProps> = () => {
-  return <div>ListingCard</div>;
+  return <div className="col-span-1 cursor-pointer group focus:outline-none">ListingCard</div>;
 };
 export default ListingCard;
