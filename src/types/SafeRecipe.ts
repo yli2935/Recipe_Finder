@@ -2,9 +2,17 @@
  * @Author: Adam Li adam@bizzone.com
  * @Date: 2024-12-18 22:24:22
  * @LastEditors: Adam Li
- * @LastEditTime: 2024-12-19 09:29:45
+ * @LastEditTime: 2024-12-20 12:28:18
  * @FilePath: /Recipe_Finder/src/types/SafeRecipe.ts
  */
+export type IMeal = {
+  idMeal: string;
+  strMeal: string;
+  strCategory: string;
+  strArea: string;
+  strMealThumb: string;
+}
+
 export type Recipe = {
     idMeal: string;
     strMeal: string;

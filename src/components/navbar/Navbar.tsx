@@ -2,7 +2,7 @@
  * @Author: Adam Li adam@bizzone.com
  * @Date: 2024-12-18 19:32:53
  * @LastEditors: Adam Li
- * @LastEditTime: 2024-12-18 21:35:44
+ * @LastEditTime: 2024-12-19 13:34:58
  * @FilePath: /Recipe_Finder/src/components/navbar/Navbar.tsx
  */
 
@@ -14,13 +14,14 @@ interface NavbarProps {
   onSearch: (query: string) => void;
 }
 const Navbar: React.FC<NavbarProps> = ({ onSearch }) => {
+
   return (
     <div className="fixed w-full bg-white z-10 shadow-sm">
       <div className="py-2 border-b-[1px]">
         <Container>
           <div className="flex flex-row item-center item-center justify-between gap-3 md:gap-0">
             <Logo />
-            <Search />
+            <Search onSearch={onSearch}/>
             <Menu />
           </div>
         </Container>
