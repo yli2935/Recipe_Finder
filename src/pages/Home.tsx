@@ -12,6 +12,10 @@ import { FadeUp } from "../utils/animation";
 import ListingCardSkeleton from "../components/listings/ListingCardSkeleton";
 import { combineMeals } from "../utils/combineMeals";
 import { Toaster } from "react-hot-toast";
+import Pagination from "../components/Pagination";
+
+// 1) import the new hook
+import useResponsiveItemsPerPage from "../hooks/useResponsiveItemsPerPage";
 
 const Home = () => {
   const location = useLocation();
@@ -75,28 +79,52 @@ const Home = () => {
     500
   );
 
+  // Combine data
   const combinedMeals: Recipe[] = combineMeals(
     nameData,
     ingredientData,
     cachedData
   );
 
+  // Handle meal card click
   const handleCardClick = (idMeal: string) => {
     navigate(`/listings/${idMeal}`, {
       state: { randomPage, queryParams },
     });
   };
 
+  // Handle search from Navbar
   const handleSearch = (query: string) => {
     sessionStorage.removeItem("searchResults");
     setCachedData([]);
-    setQueryParams((prev: any) => ({ ...prev, s: query }));
+    setQueryParams((prev: any) => ({ ...prev, s: query, page: 1 }));
     setTrigger(true);
     setRandomPage(false);
   };
 
+  // Merge loading and error states
   const isLoading = isLoadingByName || isLoadingByIngredient;
   const error = errorByName || errorByIngredient;
+
+  // 2) use the custom hook
+  const itemsPerPage = useResponsiveItemsPerPage();
+
+  // Current page
+  const { page } = queryParams;
+
+  // Pagination calculations
+  const totalItems = combinedMeals.length;
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+  // Slice the meals for the current page
+  const indexOfLastMeal = page * itemsPerPage;
+  const indexOfFirstMeal = indexOfLastMeal - itemsPerPage;
+  const currentMeals = combinedMeals.slice(indexOfFirstMeal, indexOfLastMeal);
+
+  // Pagination callback
+  const handlePageChange = (newPage: number) => {
+    setQueryParams((prev: any) => ({ ...prev, page: newPage }));
+  };
 
   return (
     <>
@@ -120,7 +148,7 @@ const Home = () => {
         </Container>
       ) : error ? (
         <p>Error loading data</p>
-      ) : combinedMeals.length === 0 ? (
+      ) : currentMeals.length === 0 ? (
         <Container>
           <motion.div
             variants={FadeUp(0.5)}
@@ -132,13 +160,15 @@ const Home = () => {
         </Container>
       ) : (
         <Container>
+    
           <motion.div
-            className="pt-24 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8"
+      className="pt-24 grid grid-cols-1  md:grid-cols-3 lg:grid-cols-4 
+                   gap-8"
             variants={FadeUp(0.5)}
             initial="hidden"
             animate="visible"
           >
-            {combinedMeals.map((meal) => (
+            {currentMeals.map((meal) => (
               <ListingCard
                 key={meal.idMeal}
                 data={meal}
@@ -146,12 +176,17 @@ const Home = () => {
               />
             ))}
           </motion.div>
+
+          <Pagination
+            currentPage={page}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+          />
+          <div className="h-5" />
+    
         </Container>
       )}
-      <Toaster
-        position="top-right"
-        reverseOrder={false}
-      />
+      <Toaster position="top-right" reverseOrder={false} />
     </>
   );
 };
