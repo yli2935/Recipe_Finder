@@ -2,7 +2,7 @@
  * @Author: Adam Li adam@bizzone.com
  * @Date: 2024-12-20 13:06:27
  * @LastEditors: Adam Li
- * @LastEditTime: 2024-12-20 14:28:49
+ * @LastEditTime: 2024-12-20 15:38:22
  * @FilePath: /Recipe_Finder/src/pages/FavoritePage.tsx
  */
 import { useState, useEffect } from "react";
@@ -26,14 +26,14 @@ const FavoritePage = () => {
       }
     }
   }, []);
-  
+
   const navigate = useNavigate();
   const handleCardClick = (idMeal: string) => {
     navigate(`/listings/${idMeal}`);
   };
   return (
     <Container>
-      <div className="flex items-center gap-6 mb-6 mt-6 border-b pb-4">
+      <div className="flex items-center gap-6 mt-6 border-b pb-4">
         <button
           onClick={() => window.history.back()}
           className="text-xl"
@@ -51,7 +51,7 @@ const FavoritePage = () => {
       ) : (
         <div
           className="
-            pt-24
+            pt-8
             grid
             grid-cols-1
             sm:grid-cols-2
@@ -62,15 +62,13 @@ const FavoritePage = () => {
             gap-8
           "
         >
-          {
-    
-            favorites.map((meal) => (
-              <ListingCard
-                key={meal.idMeal}
-                data={meal}
-                onClickMeal={() => handleCardClick(meal.idMeal)}
-              />
-            ))}
+          {favorites.map((meal) => (
+            <ListingCard
+              key={meal.idMeal}
+              data={meal}
+              onClickMeal={() => handleCardClick(meal.idMeal)}
+            />
+          ))}
         </div>
       )}
     </Container>

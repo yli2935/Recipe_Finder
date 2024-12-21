@@ -1,11 +1,5 @@
-/*
- * @Author: Adam Li adam@bizzone.com
- * @Date: 2024-12-20 11:45:50
- * @LastEditors: Adam Li
- * @LastEditTime: 2024-12-20 14:31:06
- * @FilePath: /Recipe_Finder/src/hooks/useFavorite.ts
- */
 import { useState, useCallback, useEffect } from "react";
+import { debounce } from "lodash";
 import { toast } from "react-hot-toast";
 import { Recipe } from "../types/SafeRecipe";
 
@@ -23,28 +17,43 @@ const useFavorite = ({ meal }: IUseFavorite) => {
     }
   }, []);
 
+  // Debounced function for updating localStorage
+  const debouncedUpdateLocalStorage = useCallback(
+    debounce((updatedFavorites: Recipe[]) => {
+      localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+    }, 100),
+    []
+  );
+
   const isFavorite = favorites.some((fav) => fav.idMeal === meal.idMeal);
 
   const toggleFavorite = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
       e.stopPropagation();
 
-      let updatedFavorites: Recipe[];
+      setFavorites((prevFavorites) => {
+        const alreadyFavorite = prevFavorites.some((fav) => fav.idMeal === meal.idMeal);
 
-      if (isFavorite) {
-        updatedFavorites = favorites.filter(
-          (fav) => fav.idMeal !== meal.idMeal
-        );
-        toast.success("Unfavorited!");
-      } else {
-        updatedFavorites = [...favorites, meal];
-        toast.success("Favorited!");
-      }
+        let updatedFavorites: Recipe[];
 
-      setFavorites(updatedFavorites);
-      localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+        if (alreadyFavorite) {
+          updatedFavorites = prevFavorites.filter((fav) => fav.idMeal !== meal.idMeal);
+          toast.success("Unfavorited!");
+        } else {
+          updatedFavorites = [...prevFavorites, meal];
+          toast.success("Favorited!");
+        }
+
+        // Update localStorage immediately
+        localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+
+        // Call the debounced function to handle potential frequent updates
+        debouncedUpdateLocalStorage(updatedFavorites);
+
+        return updatedFavorites;
+      });
     },
-    [favorites, isFavorite, meal]
+    [meal, debouncedUpdateLocalStorage]
   );
 
   return {
