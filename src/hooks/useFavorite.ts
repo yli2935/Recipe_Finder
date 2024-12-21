@@ -30,30 +30,35 @@ const useFavorite = ({ meal }: IUseFavorite) => {
   const toggleFavorite = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
       e.stopPropagation();
-
+  
       setFavorites((prevFavorites) => {
         const alreadyFavorite = prevFavorites.some((fav) => fav.idMeal === meal.idMeal);
-
+  
         let updatedFavorites: Recipe[];
-
         if (alreadyFavorite) {
           updatedFavorites = prevFavorites.filter((fav) => fav.idMeal !== meal.idMeal);
-          toast.success("Unfavorited!");
         } else {
           updatedFavorites = [...prevFavorites, meal];
-          toast.success("Favorited!");
         }
-
+  
         // Update localStorage immediately
         localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
-
+  
         // Call the debounced function to handle potential frequent updates
         debouncedUpdateLocalStorage(updatedFavorites);
-
+  
         return updatedFavorites;
       });
+  
+      // Move the toast outside
+      const alreadyFavorite = favorites.some((fav) => fav.idMeal === meal.idMeal);
+      if (alreadyFavorite) {
+        toast.success("Unfavorited!");
+      } else {
+        toast.success("Favorited!");
+      }
     },
-    [meal, debouncedUpdateLocalStorage]
+    [meal, debouncedUpdateLocalStorage, favorites]
   );
 
   return {

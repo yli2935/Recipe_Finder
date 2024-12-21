@@ -11,6 +11,8 @@ import { motion } from "framer-motion";
 import { FadeUp } from "../utils/animation";
 import ListingCardSkeleton from "../components/listings/ListingCardSkeleton";
 import { combineMeals } from "../utils/combineMeals";
+import { Toaster } from "react-hot-toast";
+
 const Home = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -121,7 +123,6 @@ const Home = () => {
       ) : combinedMeals.length === 0 ? (
         <Container>
           <motion.div
-            
             variants={FadeUp(0.5)}
             initial="hidden"
             animate="visible"
@@ -147,6 +148,10 @@ const Home = () => {
           </motion.div>
         </Container>
       )}
+      <Toaster
+        position="top-right"
+        reverseOrder={false}
+      />
     </>
   );
 };
