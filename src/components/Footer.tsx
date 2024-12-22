@@ -2,7 +2,7 @@
  * @Author: Adam Li adam@bizzone.com
  * @Date: 2024-12-22 14:43:12
  * @LastEditors: Adam Li
- * @LastEditTime: 2024-12-22 16:52:55
+ * @LastEditTime: 2024-12-22 17:11:27
  * @FilePath: /Recipe_Finder/src/components/Footer.tsx
  */
 
@@ -10,16 +10,18 @@ import { IoFastFoodSharp } from "react-icons/io5";
 
 const Footer = () => {
   return (
-    <footer className="text-gray-600 body-font border-t border-gray-200">
-      {/* Reduced py-3 to py-2 and adjusted margins */}
-      <div className="container px-4 py-2 mx-auto flex items-center sm:flex-row flex-col mt-1">
+    <footer className="fixed bottom-0 w-full text-gray-600 body-font border-t border-gray-200 h-16 bg-white z-50">
+      {/* Container ensures content is centered and spaced correctly */}
+      <div className="container mx-auto flex items-center justify-between h-full px-4">
+        {/* Logo/Icon Section */}
         <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
           <IoFastFoodSharp />
         </a>
-        {/* Removed or minimized margin here (mt-4 → mt-1) */}
+
+        {/* Placeholder for additional content (if any) */}
         <p className="text-sm text-gray-500 sm:ml-4 sm:pl-4 font-semibold sm:border-gray-200 sm:py-2 sm:mt-0 mt-1"></p>
 
-        {/* Also reduced margin from mt-2 → mt-1 */}
+        {/* Creator Info */}
         <span className="inline-flex sm:ml-auto sm:mt-0 mt-1 text-sm font-semibold justify-center sm:justify-start">
           Created by{" "}
           <span className="hover:bg-blue-500 hover:text-white hover:scale-105 hover:-rotate-3 transition-all duration-300 rounded-lg cursor-pointer">
@@ -27,9 +29,10 @@ const Footer = () => {
           </span>
         </span>
 
-        {/* Reduced margin from mt-4 → mt-1 */}
+        {/* Social Media Icons */}
         <span className="inline-flex sm:ml-auto sm:mt-0 mt-1 justify-center sm:justify-start">
           <a className="text-gray-500 cursor-pointer hover:text-blue-900">
+            {/* Facebook Icon */}
             <svg
               fill="currentColor"
               strokeLinecap="round"
@@ -42,6 +45,7 @@ const Footer = () => {
             </svg>
           </a>
           <a className="ml-3 cursor-pointer hover:text-cyan-400 text-gray-500">
+            {/* Twitter Icon */}
             <svg
               fill="currentColor"
               strokeLinecap="round"
@@ -54,6 +58,7 @@ const Footer = () => {
             </svg>
           </a>
           <a className="ml-3 cursor-pointer hover:text-pink-600 text-gray-500">
+            {/* Instagram Icon */}
             <svg
               fill="none"
               stroke="currentColor"
@@ -68,6 +73,7 @@ const Footer = () => {
             </svg>
           </a>
           <a className="ml-3 cursor-pointer hover:text-indigo-900 text-gray-500">
+            {/* LinkedIn Icon */}
             <svg
               fill="currentColor"
               stroke="currentColor"

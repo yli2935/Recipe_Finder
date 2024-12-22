@@ -88,7 +88,7 @@ const Hero: React.FC = () => {
   return (
     <>
       <section>
-        <div className="container grid grid-cols-1 md:grid-cols-2 min-h-[92vh] relative">
+        <div className="container grid grid-cols-1 md:grid-cols-2 min-h-[640px] relative">
           {/* ______ Info ______ */}
           <div className="flex flex-col justify-center py-8 md:py-0 mt-20 md:mt-0 relative z-10">
             <div className="text-center md:text-left space-y-6 lg:max-w-[400px]">
@@ -125,7 +125,7 @@ const Hero: React.FC = () => {
                     onClick={handleSurpriseClick}
                   >
                     <span>
-                      <BsGiftFill className="text-xl " />
+                      <BsGiftFill className="text-xl" />
                     </span>
                     Surprise Me!
                   </motion.button>
