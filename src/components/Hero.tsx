@@ -90,7 +90,7 @@ const Hero: React.FC = () => {
       <section>
         <div className="container grid grid-cols-1 md:grid-cols-2 min-h-[640px] relative">
           {/* ______ Info ______ */}
-          <div className="flex flex-col justify-center py-8 md:py-0 mt-20 md:mt-0 relative z-20">
+          <div className="flex flex-col justify-center py-8 md:py-0 mt-20 md:mt-0 relative z-18">
             <div className="text-center md:text-left space-y-6 lg:max-w-[400px] mt-20">
               <motion.h1
                 key={animationKey}
@@ -151,7 +151,7 @@ const Hero: React.FC = () => {
           </div>
 
           {/* ______ Image ______ */}
-          <div className="flex justify-center items-center mt-10">
+          <div className="flex justify-center items-center mt-6">
             {isImageVisible && (
               <motion.img
                 key={animationKey + 2}
