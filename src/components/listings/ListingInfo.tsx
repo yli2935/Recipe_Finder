@@ -2,7 +2,7 @@
  * @Author: Adam Li adam@bizzone.com
  * @Date: 2024-12-20 09:36:19
  * @LastEditors: Adam Li
- * @LastEditTime: 2024-12-20 11:25:07
+ * @LastEditTime: 2024-12-22 14:50:17
  * @FilePath: /Recipe_Finder/src/components/listings/ListingInfo.tsx
  */
 import { Recipe } from "../../types/SafeRecipe";
@@ -21,9 +21,9 @@ const ListingInfo: React.FC<ListingInfoProps> = ({ recipe }) => {
   );
 
   return (
-<div className="flex flex-col md:flex-row gap-6 shadow-lg">
-  <div
-    className="
+    <div className="flex flex-col md:flex-row gap-6 shadow-lg mb-10 pb-10 rounded-md">
+      <div
+        className="
       w-full
       md:w-1/2
       overflow-visible
@@ -35,24 +35,24 @@ const ListingInfo: React.FC<ListingInfoProps> = ({ recipe }) => {
       md:sticky
       md:top-4
     "
-  >
-    <div className="border border-black rounded-xl p-8 max-w-md w-full">
-      <h2 className="text-xl font-bold mb-4">Ingredients</h2>
-      <ul>
-        {ingredients.map(
-          (ingredient, index) =>
-            ingredient && (
-              <li key={index}>
-                {measures[index]} <strong>{ingredient}</strong>
-              </li>
-            )
-        )}
-      </ul>
-    </div>
-  </div>
+      >
+        <div className="border border-black rounded-xl p-8 max-w-md w-full">
+          <h2 className="text-xl font-bold mb-4">Ingredients</h2>
+          <ul>
+            {ingredients.map(
+              (ingredient, index) =>
+                ingredient && (
+                  <li key={index}>
+                    {measures[index]} <strong>{ingredient}</strong>
+                  </li>
+                )
+            )}
+          </ul>
+        </div>
+      </div>
 
-  <div
-    className="
+      <div
+        className="
       w-full
       md:w-1/2
       min-h-[50vh]
@@ -62,15 +62,13 @@ const ListingInfo: React.FC<ListingInfoProps> = ({ recipe }) => {
       flex
       flex-col
     "
-  >
-    <div className="p-8">
-      <h2 className="text-xl font-bold mb-4">Instructions</h2>
-      <p>
-        {recipe.strInstructions}
-      </p>
+      >
+        <div className="p-8">
+          <h2 className="text-xl font-bold mb-4">Instructions</h2>
+          <p>{recipe.strInstructions}</p>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
   );
 };
 export default ListingInfo;

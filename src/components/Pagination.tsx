@@ -2,7 +2,7 @@
  * @Author: Adam Li adam@bizzone.com
  * @Date: 2024-12-21 16:49:48
  * @LastEditors: Adam Li
- * @LastEditTime: 2024-12-21 17:15:36
+ * @LastEditTime: 2024-12-22 14:49:22
  * @FilePath: /Recipe_Finder/src/components/Pagination.tsx
  */
 import React from "react";
@@ -34,7 +34,7 @@ const Pagination: React.FC<PaginationProps> = ({
   };
 
   return (
-    <div className="flex items-center justify-center gap-2 mt-8 mb-10">
+    <div className="flex items-center justify-center gap-2 mt-8">
       <button
         onClick={handlePrevPage}
         disabled={currentPage === 1}

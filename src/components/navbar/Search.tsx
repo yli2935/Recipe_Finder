@@ -1,6 +1,7 @@
 import { BiSearch } from "react-icons/bi";
 import { useState } from "react";
-
+import { toast } from "react-hot-toast";
+import DOMPurify from "dompurify"; // to sanitize user input
 interface SearchProps {
   onSearch: (query: string) => void;
 }
@@ -9,7 +10,12 @@ const Search: React.FC<SearchProps> = ({ onSearch }) => {
   const [query, setQuery] = useState("");
 
   const handleSearch = () => {
-    onSearch(query);
+    if (query.trim() === "") {
+      toast.error("Please enter a search query!");
+      return;
+    }
+    const sanitizedQuery = DOMPurify.sanitize(query);
+    onSearch(sanitizedQuery);
   };
 
   const handleOnInputChanged = (event: React.ChangeEvent<HTMLInputElement>) => {

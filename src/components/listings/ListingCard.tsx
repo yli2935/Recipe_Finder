@@ -2,7 +2,7 @@
  * @Author: Adam Li adam@bizzone.com
  * @Date: 2024-12-18 22:27:43
  * @LastEditors: Adam Li
- * @LastEditTime: 2024-12-20 12:28:45
+ * @LastEditTime: 2024-12-22 11:55:03
  * @FilePath: /Recipe_Finder/src/components/listings/ListingCard.tsx
  */
 import { Recipe } from "../../types/SafeRecipe";
@@ -40,7 +40,7 @@ const ListingCard: React.FC<ListingCardProps> = ({ data, onClickMeal }) => {
               duration-300         
             "
           />
-          <div
+          {/* <div
             className="
 							absolute
 							top-3
@@ -50,7 +50,7 @@ const ListingCard: React.FC<ListingCardProps> = ({ data, onClickMeal }) => {
             <HeartButton
               meal={data}
             />
-          </div>
+          </div> */}
         </div>
 
         <div className="font-bold text-sm ">{data?.strMeal}</div>

@@ -13,15 +13,12 @@ import ListingCardSkeleton from "../components/listings/ListingCardSkeleton";
 import { combineMeals } from "../utils/combineMeals";
 import { Toaster } from "react-hot-toast";
 import Pagination from "../components/Pagination";
-
-// 1) import the new hook
 import useResponsiveItemsPerPage from "../hooks/useResponsiveItemsPerPage";
-
+import Footer from "../components/Footer";
 const Home = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Load initial state from sessionStorage or location.state
   const [queryParams, setQueryParams] = useState(() => {
     const savedParams =
       location.state?.queryParams || sessionStorage.getItem("queryParams");
@@ -45,13 +42,11 @@ const Home = () => {
     setTrigger(false);
   }, []);
 
-  // Load search results from sessionStorage when the component mounts
   const [cachedData, setCachedData] = useState<Recipe[]>(() => {
     const savedData = sessionStorage.getItem("searchResults");
     return savedData ? JSON.parse(savedData).meals : [];
   });
 
-  // Fetch data by name
   const {
     data: nameData,
     isLoading: isLoadingByName,
@@ -65,7 +60,6 @@ const Home = () => {
     500
   );
 
-  // Fetch data by ingredient
   const {
     data: ingredientData,
     isLoading: isLoadingByIngredient,
@@ -79,21 +73,18 @@ const Home = () => {
     500
   );
 
-  // Combine data
   const combinedMeals: Recipe[] = combineMeals(
     nameData,
     ingredientData,
     cachedData
   );
 
-  // Handle meal card click
   const handleCardClick = (idMeal: string) => {
     navigate(`/listings/${idMeal}`, {
       state: { randomPage, queryParams },
     });
   };
 
-  // Handle search from Navbar
   const handleSearch = (query: string) => {
     sessionStorage.removeItem("searchResults");
     setCachedData([]);
@@ -102,21 +93,17 @@ const Home = () => {
     setRandomPage(false);
   };
 
-  // Merge loading and error states
   const isLoading = isLoadingByName || isLoadingByIngredient;
   const error = errorByName || errorByIngredient;
+  console.log("error", error);
 
-  // 2) use the custom hook
   const itemsPerPage = useResponsiveItemsPerPage();
 
-  // Current page
   const { page } = queryParams;
 
-  // Pagination calculations
   const totalItems = combinedMeals.length;
   const totalPages = Math.ceil(totalItems / itemsPerPage);
 
-  // Slice the meals for the current page
   const indexOfLastMeal = page * itemsPerPage;
   const indexOfFirstMeal = indexOfLastMeal - itemsPerPage;
   const currentMeals = combinedMeals.slice(indexOfFirstMeal, indexOfLastMeal);
@@ -135,6 +122,7 @@ const Home = () => {
       {randomPage ? (
         <Container>
           <Hero />
+          <Footer />
         </Container>
       ) : isLoading ? (
         <Container>
@@ -146,12 +134,23 @@ const Home = () => {
               ))}
           </div>
         </Container>
-      ) : error ? (
-        <p>Error loading data</p>
-      ) : currentMeals.length === 0 ? (
+      ) : !isLoading && error ? (
         <Container>
           <motion.div
             variants={FadeUp(0.5)}
+            initial="hidden"
+            animate="visible"
+          >
+            <EmptyState
+              title="Something went wrong"
+              subtitle={error}
+            />
+          </motion.div>
+        </Container>
+      ) : !isLoading && !error && currentMeals.length === 0 ? (
+        <Container>
+          <motion.div
+            variants={FadeUp(1)}
             initial="hidden"
             animate="visible"
           >
@@ -160,9 +159,8 @@ const Home = () => {
         </Container>
       ) : (
         <Container>
-    
           <motion.div
-      className="pt-24 grid grid-cols-1  md:grid-cols-3 lg:grid-cols-4 
+            className="pt-24 grid grid-cols-1  md:grid-cols-3 lg:grid-cols-4 
                    gap-8"
             variants={FadeUp(0.5)}
             initial="hidden"
@@ -177,16 +175,25 @@ const Home = () => {
             ))}
           </motion.div>
 
-          <Pagination
-            currentPage={page}
-            totalPages={totalPages}
-            onPageChange={handlePageChange}
-          />
-          <div className="h-5" />
-    
+          <motion.div
+            variants={FadeUp(0.5)}
+            initial="hidden"
+            animate="visible"
+          >
+            <Pagination
+              currentPage={page}
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
+            />
+            <div className="h-5" />
+          </motion.div>
         </Container>
       )}
-      <Toaster position="top-right" reverseOrder={false} />
+      <Footer />
+      <Toaster
+        position="top-right"
+        reverseOrder={false}
+      />
     </>
   );
 };

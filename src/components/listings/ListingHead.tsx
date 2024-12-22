@@ -1,6 +1,7 @@
 import Heading from "../Heading";
 import HeartButton from "../HeartButton";
 import { Recipe } from "../../types/SafeRecipe";
+import EmptyState from "../EmptyState";
 interface ListingHeadProps {
   title: string;
   category: string;
@@ -76,20 +77,20 @@ const ListingHead: React.FC<ListingHeadProps> = ({
             justify-center
           "
         >
-        {strYoutube ? (
-          <div className="w-full h-full">
-            <iframe
-              className="w-full h-full"
-              src={`https://www.youtube.com/embed/${videoId}`}
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </div>
-        ) : (
-          <p>Video not available</p>
-        )}
+          {strYoutube ? (
+            <div className="w-full h-full">
+              <iframe
+                className="w-full h-full"
+                src={`https://www.youtube.com/embed/${videoId}`}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          ) : (
+            <EmptyState title="Video not available" subtitle=""/>
+          )}
         </div>
       </div>
     </>
