@@ -11,7 +11,7 @@ import EmptyState from "../components/EmptyState";
 
 const Hero: React.FC = () => {
   const [trigger, setTrigger] = useState(false);
-  const [animationKey, setAnimationKey] = useState(0); 
+  const [animationKey, setAnimationKey] = useState(0);
   const [isImageVisible, setImageVisible] = useState(false);
   const navigate = useNavigate();
 
@@ -88,7 +88,7 @@ const Hero: React.FC = () => {
   return (
     <>
       <section>
-        <div className="container grid grid-cols-1 md:grid-cols-2 min-h-[640px] relative">
+        <div className="container grid grid-cols-1 md:grid-cols-2 min-h-[92vh] relative">
           {/* ______ Info ______ */}
           <div className="flex flex-col justify-center py-8 md:py-0 mt-20 md:mt-0 relative z-10">
             <div className="text-center md:text-left space-y-6 lg:max-w-[400px]">
@@ -114,7 +114,7 @@ const Hero: React.FC = () => {
                 {meal?.strCategory}, {meal?.strArea}
               </motion.p>
 
-              <div className="flex flex-row gap-10">
+              <div className="flex flex-col md:flex-row gap-4 md:gap-10">
                 <div className="flex justify-center md:justify-start">
                   <motion.button
                     key={animationKey + 1}
@@ -125,7 +125,7 @@ const Hero: React.FC = () => {
                     onClick={handleSurpriseClick}
                   >
                     <span>
-                      <BsGiftFill className="text-xl" />
+                      <BsGiftFill className="text-xl " />
                     </span>
                     Surprise Me!
                   </motion.button>
