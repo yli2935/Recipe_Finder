@@ -2,7 +2,7 @@
  * @Author: Adam Li adam@bizzone.com
  * @Date: 2024-12-18 16:32:56
  * @LastEditors: Adam Li
- * @LastEditTime: 2024-12-22 16:32:52
+ * @LastEditTime: 2024-12-22 17:26:11
  * @FilePath: /Recipe_Finder/README.md
 -->
 
@@ -10,6 +10,18 @@
 
 A React application that interacts with the [TheMealDB API](https://www.themealdb.com/) to search for and display meal recipes. Users can search for meals by name or ingredient, view recipe details, and optionally manage their favorites.
 
+
+## 🎉 Live Demo
+Explore the Recipe Finder in action! Discover your next favorite meal with an easy-to-use interface and vibrant visuals. 
+
+🔗 **[Live Demo](https://recipe-finder-one-murex.vercel.app/)**
+
+✨ **What to Try**:
+- Search for "Chicken" to see a variety of chicken-based recipes.
+- Explore the recipe details, including cooking instructions and ingredients.
+- Save your favorite recipes to revisit later!
+
+---
 ## Table of Contents
 
 1. [Features](#features)
