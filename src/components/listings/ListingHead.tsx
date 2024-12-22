@@ -41,7 +41,7 @@ const ListingHead: React.FC<ListingHeadProps> = ({
         title={title}
         subtitle={`${category}, ${area}`}
       />
-      <div className="flex flex-col md:flex-row gap-6">
+      <div className="flex flex-col md:flex-row gap-6" key={id}>
         <div
           className="
             w-full

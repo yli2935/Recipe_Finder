@@ -2,10 +2,9 @@
  * @Author: Adam Li adam@bizzone.com
  * @Date: 2024-12-22 11:04:03
  * @LastEditors: Adam Li
- * @LastEditTime: 2024-12-22 11:09:46
+ * @LastEditTime: 2024-12-22 16:37:07
  * @FilePath: /Recipe_Finder/src/components/DetailSkeleton.tsx
  */
-import React from 'react';
 
 const DetailSkeleton = () => {
   return (

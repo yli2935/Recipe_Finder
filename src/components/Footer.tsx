@@ -2,20 +2,18 @@
  * @Author: Adam Li adam@bizzone.com
  * @Date: 2024-12-22 14:43:12
  * @LastEditors: Adam Li
- * @LastEditTime: 2024-12-22 14:47:36
+ * @LastEditTime: 2024-12-22 16:37:11
  * @FilePath: /Recipe_Finder/src/components/Footer.tsx
  */
-import React from "react";
+
 import { IoFastFoodSharp } from "react-icons/io5";
 
 const Footer = () => {
   return (
-    <footer className="text-gray-600 body-font border-t border-gray-200">
-      <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+    <footer className="text-gray-600 body-font border-t border-gray-200 ">
+      <div className="container px-4 py-3 mx-auto flex items-center sm:flex-row flex-col mt-2">
         <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
           <IoFastFoodSharp
-            width={40}
-            height={40}
           />
         </a>
         <p className="text-sm text-gray-500 sm:ml-4 sm:pl-4 font-semibold  sm:border-gray-200 sm:py-2 sm:mt-0 mt-4"></p>

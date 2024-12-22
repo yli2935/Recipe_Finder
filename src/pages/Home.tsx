@@ -122,7 +122,6 @@ const Home = () => {
       {randomPage ? (
         <Container>
           <Hero />
-          <Footer />
         </Container>
       ) : isLoading ? (
         <Container>

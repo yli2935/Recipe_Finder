@@ -2,7 +2,7 @@
  * @Author: Adam Li adam@bizzone.com
  * @Date: 2024-12-18 16:32:56
  * @LastEditors: Adam Li
- * @LastEditTime: 2024-12-22 15:42:58
+ * @LastEditTime: 2024-12-22 16:32:52
  * @FilePath: /Recipe_Finder/README.md
 -->
 
@@ -71,10 +71,18 @@ A React application that interacts with the [TheMealDB API](https://www.themeald
 
 ---
 
-## Screenshots (Optional)
+## Screenshots 
+### Home Page and Random Meal 
+![alt text](Screenshots/home.png)
 
-_(Add screenshots or GIFs here to demonstrate the user interface and functionality.)_
+### Search 
+![alt text](Screenshots/search.png)
 
+### Detail Page 
+![alt text](Screenshots/detail.png)
+
+### Favorites List
+![alt text](Screenshots/favorites.png)
 ---
 
 ## Getting Started

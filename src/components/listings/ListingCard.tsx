@@ -2,11 +2,11 @@
  * @Author: Adam Li adam@bizzone.com
  * @Date: 2024-12-18 22:27:43
  * @LastEditors: Adam Li
- * @LastEditTime: 2024-12-22 11:55:03
+ * @LastEditTime: 2024-12-22 16:40:31
  * @FilePath: /Recipe_Finder/src/components/listings/ListingCard.tsx
  */
 import { Recipe } from "../../types/SafeRecipe";
-import HeartButton from "../HeartButton";
+
 
 interface ListingCardProps {
   data: Recipe;
@@ -40,17 +40,7 @@ const ListingCard: React.FC<ListingCardProps> = ({ data, onClickMeal }) => {
               duration-300         
             "
           />
-          {/* <div
-            className="
-							absolute
-							top-3
-							right-3
-						"
-          >
-            <HeartButton
-              meal={data}
-            />
-          </div> */}
+
         </div>
 
         <div className="font-bold text-sm ">{data?.strMeal}</div>
