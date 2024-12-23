@@ -2,7 +2,7 @@
  * @Author: Adam Li adam@bizzone.com
  * @Date: 2024-12-18 16:32:56
  * @LastEditors: Adam Li
- * @LastEditTime: 2024-12-22 17:26:11
+ * @LastEditTime: 2024-12-23 09:26:28
  * @FilePath: /Recipe_Finder/README.md
 -->
 
@@ -37,51 +37,55 @@ Explore the Recipe Finder in action! Discover your next favorite meal with an ea
    - [Random Meal ](#random-meal)
 5. [Project Structure](#project-structure)
 6. [Error Handling](#error-handling)
-
+7. [Todo](#todo)
 
 ---
 
-## Features
+## ✨ Features
 
-### Search Features
-
+### 🔍 Search Features
 - **Search by Meal Name**: Users can enter a meal name to search for recipes.
 - **Search by Ingredient**: Users can search recipes by a specific ingredient.
 - **View Recipe Details**: Clicking on a meal displays detailed information, including:
-  - Meal name
-  - Category and cuisine
-  - Instructions
-  - Ingredients and measures
-  - Meal thumbnail image
-  - YouTube video (if available)
-
-### Error Handling Toast
-
-- Displays an error message if the API call fails.
-- Handles cases where no meals are found.
-- Prevents empty search queries.
-
-### Responsive Design
-
-- Ensures the UI is accessible and looks good on both mobile and desktop devices.
-
-### Favorites List
-
-- Users can add meals to a favorites list in Recipe Details page, stored locally in the browser.
-
-### Random Meal
-
-- A "Surprise Me!" button fetches a random meal.
-
-### Debounced Search
-
-- Reduces the number of API calls while typing.
-
-### Pagination
-
-- For lengthy search results, loads meals in chunks.
+  - 🍴 **Meal name**
+  - 🗂️ **Category and cuisine**
+  - 📜 **Instructions**
+  - 📏 **Ingredients and measures**
+  - 🖼️ **Meal thumbnail image**
+  - ▶️ **YouTube video** (if available)
 
 ---
+
+### ⚠️ Error Handling Toast
+- Displays an error message if the **API call fails**.
+- Handles cases where **no meals are found**.
+- Prevents **empty search queries** with a toast notification.
+
+---
+
+### 📱 Responsive Design
+- Ensures the UI is accessible and looks good on both **mobile** and **desktop** devices.
+
+---
+
+### ❤️ Favorites List
+- Users can add meals to a **favorites list** on the Recipe Details page.
+- Favorites are stored locally in the browser (**`localStorage`**).
+
+---
+
+### 🎲 Random Meal
+- A **"Surprise Me!"** button fetches a random meal.
+
+---
+
+### ⏳ Debounced Search
+- Reduces the number of **API calls** while typing.
+
+---
+
+### 📖 Pagination
+- For lengthy search results, meals are **loaded in chunks**.
 
 ## Screenshots 
 ### Home Page and Random Meal 
@@ -97,7 +101,9 @@ Explore the Recipe Finder in action! Discover your next favorite meal with an ea
 ![alt text](Screenshots/favorites.png)
 ---
 
-## Getting Started
+# 🛠️ Getting Started
+
+## 🚀 Setup
 
 ### Prerequisites
 
@@ -106,15 +112,15 @@ Explore the Recipe Finder in action! Discover your next favorite meal with an ea
 
 ### Installation
 
-1. **Clone the repository:**
+1. **Clone the repository** 📂:
    ```bash
    git clone https://github.com/your-username/recipe-finder.git
    ```
-2. **Navigate into the project directory:**
+2. **Navigate into the project directory 📁:**
    ```bash
    cd recipe-finder
    ```
-2. **Install dependencies using pnpm:** 
+2. **nstall dependencies using pnpm 📦:** 
    ```bash
    pnpm install
    ```
@@ -126,26 +132,30 @@ Explore the Recipe Finder in action! Discover your next favorite meal with an ea
 2. **Open http://localhost:5173 to view the application in your browser.** 
 
 
-## Usage
-### Search for Meals
-In the homepage, use the search bar to type a meal name or ingredient.  
-Press **Enter** or click the search button.  
-A list of matching meals will appear, each displaying a thumbnail and meal name.
-### View Meal Details
-Click on any meal from the search results.  
-A detailed view (or modal) will appear with:  
-- Meal name  
-- Category and cuisine  
-- Instructions  
-- Ingredients list and their measures  
-- Thumbnail image  
-- YouTube video (if available)
-### Favorites 
-click on the **Heart icon** in deatil page to save a meal to favorite list.  
-Favorites are stored locally in `localStorage`, so they persist across sessions.  
-Navigate to the **Favorites**  page by click the **Heart icon** at top right of nav bar
-### Random Meal 
- **"Surprise Me!"** button click it to fetch a random meal from the API.
+## 🚀 Usage
+
+### 🔍 Search for Meals
+- On the **homepage**, use the search bar to type a meal name or ingredient.  
+- Press **Enter** or click the **Search** button.  
+- A list of matching meals will appear, each displaying a **thumbnail** and **meal name**.
+
+### 🍽️ View Meal Details
+- Click on any meal from the search results.  
+- A detailed view (or modal) will appear with:
+  - **Meal name**  
+  - **Category** and **cuisine**  
+  - **Instructions**  
+  - **Ingredients list** and their measures  
+  - **Thumbnail image**  
+  - **YouTube video** (if available)
+
+### ❤️ Favorites
+- Click on the **Heart icon** 💖 on the details page to save a meal to your favorites list.  
+- Favorites are stored locally in **`localStorage`**, so they persist across sessions.  
+- Navigate to the **Favorites** page by clicking the **Heart icon** ❤️ at the top right of the navbar.
+
+### 🎲 Random Meal
+- Click the **"Surprise Me!"** button 🎉 to fetch a random meal from the API.
 
 ## Project Structure
 ```
@@ -175,7 +185,28 @@ recipe-finder/
 ├── README.md
 └── ...
 ```
-## Error Handling
-* Network/Server Errors: Displays a error message if the API call fails.
-* No Results: Shows a "No meals found" message when the search yields no data.
-* Empty Input: Disables search functionality until a valid query is entered. A toast will appear when query with empty input.
+## ⚠️ Error Handling
+* **Network/Server Errors** 🌐: Displays an error message if the API call fails.
+* **No Results** 🔎: Shows a "No meals found" message when the search yields no data.
+* **Empty Input** 🚫: Disables search functionality until a valid query is entered. A toast will appear for an empty input query.
+
+
+# ✅ TODO List
+
+## 1. Web Analytics 📊
+- Integrate **`vercel/analytics`** for tracking.
+- Focus on tracking the usage of the "diff" function.
+
+## 2. Filtering 🔍
+- Add filtering functionality:
+  - By **Category** 🗂️.
+  - By **Area** 📍.
+
+## 3. Authentication 🔑
+- Implement **OAuth** for user authentication.
+
+## 4. Meal Instructions 🍴
+- Improve readability of meal instructions.
+- Use **OpenAI API** to reformat the instructions into a clearer format.
+
+
