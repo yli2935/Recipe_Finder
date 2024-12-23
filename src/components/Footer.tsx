@@ -2,7 +2,7 @@
  * @Author: Adam Li adam@bizzone.com
  * @Date: 2024-12-22 14:43:12
  * @LastEditors: Adam Li
- * @LastEditTime: 2024-12-22 21:11:48
+ * @LastEditTime: 2024-12-22 21:13:59
  * @FilePath: /Recipe_Finder/src/components/Footer.tsx
  */
 
@@ -49,22 +49,21 @@ const Footer = () => {
             </svg>
           </a>
           <a
-            href="https://x.com/"
+            href="https://github.com/yli2935"
             target="_blank"
-            className="ml-3 cursor-pointer hover:text-cyan-400 text-gray-500"
+            className="ml-3 cursor-pointer hover:text-gray-800 text-gray-500"
           >
-            {/* Twitter Icon */}
+            {/* GitHub Icon */}
             <svg
               fill="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className="w-5 h-5"
+              xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
+              className="w-5 h-5"
             >
-              <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.799 8.205 11.387.6.113.82-.26.82-.578 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.744.082-.729.082-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.805 1.305 3.49.998.108-.774.418-1.306.762-1.605-2.665-.305-5.467-1.334-5.467-5.933 0-1.31.468-2.38 1.235-3.22-.123-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.52 11.52 0 013.006-.403c1.02.004 2.045.137 3.006.403 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.241 2.873.118 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.625-5.479 5.922.429.37.813 1.1.813 2.215 0 1.598-.015 2.887-.015 3.277 0 .321.216.695.825.578C20.565 21.796 24 17.297 24 12c0-6.63-5.37-12-12-12z"></path>
             </svg>
           </a>
+
           <a
             href="https://www.instagram.com/liyaguang4717/"
             target="_blank"
