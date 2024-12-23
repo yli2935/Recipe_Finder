@@ -2,7 +2,7 @@
  * @Author: Adam Li adam@bizzone.com
  * @Date: 2024-12-22 21:46:25
  * @LastEditors: Adam Li
- * @LastEditTime: 2024-12-22 21:50:51
+ * @LastEditTime: 2024-12-22 22:00:00
  * @FilePath: /Recipe_Finder/src/pages/NotFoundPage.tsx
  */
 import React from 'react';
@@ -12,27 +12,30 @@ import logo from '../assets/Scarecrow.png';
 
 const MainContent: React.FC = () => {
   return (
-    <div className="my-10 mx-10 grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-8 place-items-center">
-      <div>
-        <img
-          className="w-auto animate-pulse"
-          src={logo}
-          alt="Oops, Not Found! Scarecrow!"
-        />
-      </div>
-      <div className="mr-10 font-bodyfont grid grid-cols-1 gap-6 justify-items-start">
-        <h1 className="font-bold text-4xl sm:text-5xl leading-relaxed md:leading-normal lg:leading-relaxed">
-          I have bad news for you
-        </h1>
-        <p className="font-normal text-lg">
-          The Page you are looking for might be removed or is temporarily unavailable
-        </p>
-        <button
-          className="uppercase text-sm text-center py-5 mt-5 bg-gray-900 hover:bg-gray-600 active:bg-gray-800 text-white transform hover:-translate-y-1 hover:scale-110 active:scale-100 transition-transform w-56 cursor-pointer"
-          onClick={() => (window.location.href = '/')}
-        >
-          Back to Homepage
-        </button>
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center px-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center w-full max-w-5xl bg-white shadow-lg rounded-lg p-6 md:p-12">
+        <div className="flex justify-center">
+          <img
+            className="w-72 md:w-96 lg:w-full animate-pulse"
+            src={logo}
+            alt="Oops, Not Found! Scarecrow!"
+          />
+        </div>
+        <div className="text-center md:text-left">
+          <h1 className="font-extrabold text-5xl sm:text-6xl text-gray-900 mb-4">
+            404
+          </h1>
+          <p className="text-gray-700 text-lg leading-relaxed">
+            The page you are looking for might have been removed or is
+            temporarily unavailable.
+          </p>
+          <button
+            className="mt-6 bg-gray-900 hover:bg-gray-700 text-white text-sm font-semibold uppercase py-4 px-8 rounded-md shadow-md transition-transform transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-gray-500 focus:ring-opacity-50"
+            onClick={() => (window.location.href = '/')}
+          >
+            Back to Homepage
+          </button>
+        </div>
       </div>
     </div>
   );
